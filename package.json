@@ -3,12 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "description": "A starter template for building a web component with TypeScript and Lit",
-  "keywords": [
-    "web-components",
-    "lit-element",
-    "typescript",
-    "lit"
-  ],
+  "keywords": ["web-components", "lit-element", "typescript", "lit"],
   "type": "module",
   "main": "hello-world.js",
   "module": "hello-world.js",
@@ -17,6 +12,11 @@
     "build": "tsc",
     "build:watch": "tsc --watch",
     "clean": "rimraf dist",
+    "format": "biome format .",
+    "lint": "biome lint .",
+    "static:apply": "biome check --apply .",
+    "static:check": "biome check .",
+    "static:ci": "biome ci .",
     "test": "npm run test:dev && npm run test:prod",
     "test:dev": "web-test-runner",
     "test:dev:watch": "web-test-runner --watch",
@@ -27,6 +27,7 @@
     "lit": "^3.1.2"
   },
   "devDependencies": {
+    "@biomejs/biome": "1.5.3",
     "@open-wc/testing": "^4.0.0",
     "@types/mocha": "^10.0.6",
     "@types/node": "^20.11.19",
