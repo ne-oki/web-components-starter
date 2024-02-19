@@ -33,10 +33,6 @@ export class HelloWorld extends LitElement {
     this.dispatchEvent(new CustomEvent('count-changed'))
   }
 
-  /**
-   * Formats a greeting
-   * @param name The name to say "Hello" to
-   */
   sayHello(name: string): string {
     return `Hello, ${name}`
   }
