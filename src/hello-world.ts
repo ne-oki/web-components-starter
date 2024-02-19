@@ -1,7 +1,7 @@
-import { LitElement, html, css } from "lit";
-import { customElement, property } from "lit/decorators.js";
+import { LitElement, css, html } from 'lit'
+import { customElement, property } from 'lit/decorators.js'
 
-@customElement("hello-world")
+@customElement('hello-world')
 export class HelloWorld extends LitElement {
   static override styles = css`
     :host {
@@ -10,13 +10,13 @@ export class HelloWorld extends LitElement {
       padding: 16px;
       max-width: 800px;
     }
-  `;
+  `
 
   @property()
-  name = "World";
+  name = 'World'
 
   @property({ type: Number })
-  count = 0;
+  count = 0
 
   override render() {
     return html`
@@ -25,12 +25,12 @@ export class HelloWorld extends LitElement {
         Click Count: ${this.count}
       </button>
       <slot></slot>
-    `;
+    `
   }
 
   private _onClick() {
-    this.count++;
-    this.dispatchEvent(new CustomEvent("count-changed"));
+    this.count++
+    this.dispatchEvent(new CustomEvent('count-changed'))
   }
 
   /**
@@ -38,12 +38,12 @@ export class HelloWorld extends LitElement {
    * @param name The name to say "Hello" to
    */
   sayHello(name: string): string {
-    return `Hello, ${name}`;
+    return `Hello, ${name}`
   }
 }
 
 declare global {
   interface HTMLElementTagNameMap {
-    "hello-world": HelloWorld;
+    'hello-world': HelloWorld
   }
 }
