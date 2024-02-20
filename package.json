@@ -15,7 +15,9 @@
     "build:watch": "tsc --watch",
     "clean": "rimraf dist",
     "format": "biome format .",
-    "lint": "biome lint .",
+    "lint": "npm run lint:lit-analyzer && npm run lint:biome",
+    "lint:biome": "biome lint .",
+    "lint:lit-analyzer": "lit-analyzer",
     "static:apply": "biome check --apply .",
     "static:check": "biome check .",
     "static:ci": "biome ci .",
@@ -39,6 +41,7 @@
     "@web/dev-server-esbuild": "^1.0.2",
     "@web/test-runner": "^0.18.0",
     "lefthook": "^1.6.1",
+    "lit-analyzer": "^2.0.3",
     "rimraf": "^5.0.5",
     "tslib": "^2.6.2",
     "typescript": "^5.3.3"
