@@ -1,0 +1,9 @@
+pre-commit:
+  commands:
+    check:
+      run: npm run static:check
+
+pre-push:
+  commands:
+    check:
+      run: npm run static:check
