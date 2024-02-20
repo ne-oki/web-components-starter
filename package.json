@@ -28,6 +28,7 @@
     "test:dev:watch": "web-test-runner --watch",
     "test:prod": "MODE=prod web-test-runner",
     "test:prod:watch": "MODE=prod web-test-runner --watch",
+    "type-check": "tsc --noEmit",
     "postinstall": "lefthook install"
   },
   "dependencies": {
