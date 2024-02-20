@@ -17,6 +17,6 @@ jobs:
           node-version: 20
       - run: npm install
       - run: npm run lint:lit-analyzer
-      - run: npm run static:ci
+      - run: npm run static-check:ci
       - run: npm run type-check
       - run: npm run test
