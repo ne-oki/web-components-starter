@@ -5,7 +5,7 @@ import globals from 'globals'
 
 /** @type {import("eslint").Linter.FlatConfig[]} */
 export default [
-  { ignores: ['node_modules', 'dist'] },
+  { ignores: ['node_modules', 'dist', 'storybook-static'] },
   js.configs.recommended,
   eslintConfigPrettier,
   ...ts.config(...ts.configs.recommended, {
