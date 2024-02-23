@@ -1,14 +1,14 @@
-import js from '@eslint/js'
-import ts from 'typescript-eslint'
+import eslint from '@eslint/js'
+import tseslint from 'typescript-eslint'
 import eslintConfigPrettier from 'eslint-config-prettier'
 import globals from 'globals'
 
 /** @type {import("eslint").Linter.FlatConfig[]} */
 export default [
   { ignores: ['node_modules', 'dist', 'storybook-static'] },
-  js.configs.recommended,
+  eslint.configs.recommended,
   eslintConfigPrettier,
-  ...ts.config(...ts.configs.recommended, {
+  ...tseslint.config(...tseslint.configs.recommended, {
     files: ['**/*.ts'],
     languageOptions: {
       ecmaVersion: 2020,
