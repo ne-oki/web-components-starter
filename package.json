@@ -10,9 +10,12 @@
     "lit"
   ],
   "type": "module",
-  "main": "hello-world.js",
-  "module": "hello-world.js",
-  "types": "hello-world.d.ts",
+  "main": "dist/hello-world.js",
+  "module": "dist/hello-world.js",
+  "types": "dist/hello-world.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "analyze": "custom-elements-manifest analyze --litelement --globs \"src/**/*.ts\" --outdir dist",
     "analyze:watch": "custom-elements-manifest analyze --litelement --globs \"src/**/*.ts\" --outdir dist --watch",
