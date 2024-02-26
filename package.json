@@ -37,7 +37,7 @@
     "test:prod": "MODE=prod web-test-runner",
     "test:prod:watch": "MODE=prod web-test-runner --watch",
     "type-check": "tsc --project tsconfig.quality.json",
-    "postinstall": "lefthook install",
+    "prepare": "lefthook install",
     "prepublishOnly": "npm run quality && npm run clean && npm run build && npm run analyze"
   },
   "dependencies": {
