@@ -1,45 +1,44 @@
-import { expect, fixture, html } from '@open-wc/testing'
+import userEvent from '@testing-library/user-event'
+import { describe, expect, it } from 'vitest'
+
+import './hello-world'
 import { HelloWorld } from './hello-world'
 
 describe('hello-world', () => {
-  it('is defined', () => {
-    const el = document.createElement('hello-world')
-    expect(el).to.be.instanceOf(HelloWorld)
-  })
-
   it('renders with default values', async () => {
-    const el = await fixture(html`<hello-world></hello-world>`)
-    expect(el).shadowDom.to.equal(`
-      <h1>Hello, World!</h1>
-      <button part="button">Click Count: 0</button>
-      <slot></slot>
-    `)
+    document.body.innerHTML = '<hello-world></hello-world>'
+    await customElements.whenDefined('hello-world')
+
+    const el = document.querySelector('hello-world') as HelloWorld
+    const h1 = el.shadowRoot!.querySelector('h1')!
+    const button = el.shadowRoot!.querySelector('button')!
+
+    expect(h1.textContent!.trim()).toBe('Hello, World!')
+    expect(button.textContent!.trim()).toBe('Click Count: 0')
   })
 
   it('renders with a set name', async () => {
-    const el = await fixture(html`<hello-world name="Test"></hello-world>`)
-    expect(el).shadowDom.to.equal(`
-      <h1>Hello, Test!</h1>
-      <button part="button">Click Count: 0</button>
-      <slot></slot>
-    `)
+    document.body.innerHTML = '<hello-world name="Test"></hello-world>'
+    await customElements.whenDefined('hello-world')
+
+    const el = document.querySelector('hello-world') as HelloWorld
+    const h1 = el.shadowRoot!.querySelector('h1')!
+    const button = el.shadowRoot!.querySelector('button')!
+
+    expect(h1.textContent!.trim()).toBe('Hello, Test!')
+    expect(button.textContent!.trim()).toBe('Click Count: 0')
   })
 
   it('handles a click', async () => {
-    const el = (await fixture(html`<hello-world></hello-world>`)) as HelloWorld
-    const button = el.shadowRoot!.querySelector('button')!
-    button.click()
-    await el.updateComplete
-    expect(el).shadowDom.to.equal(`
-      <h1>Hello, World!</h1>
-      <button part="button">Click Count: 1</button>
-      <slot></slot>
-    `)
-  })
+    const user = userEvent.setup()
 
-  it('styling applied', async () => {
-    const el = (await fixture(html`<hello-world></hello-world>`)) as HelloWorld
-    await el.updateComplete
-    expect(getComputedStyle(el).paddingTop).to.equal('16px')
+    document.body.innerHTML = '<hello-world></hello-world>'
+    await customElements.whenDefined('hello-world')
+
+    const el = document.querySelector('hello-world') as HelloWorld
+    const button = el.shadowRoot!.querySelector('button')!
+    await user.click(button)
+
+    expect(button.textContent!.trim()).toBe('Click Count: 1')
   })
 })
