@@ -9,6 +9,7 @@ interface HelloWorldProps {
 
 const meta = {
   title: 'HelloWorld',
+  tags: ['autodocs'],
 } satisfies Meta<HelloWorldProps>
 
 export default meta
