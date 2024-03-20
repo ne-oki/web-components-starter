@@ -1,8 +1,9 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "noEmit": true
+    "noEmit": true,
+    "outDir": "dist"
   },
-  "include": ["**/*.ts", "./.storybook/**/*.ts"],
+  "include": ["src", ".storybook"],
   "exclude": ["node_modules", "dist"]
 }
