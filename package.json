@@ -58,7 +58,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-only-warn": "^1.1.0",
     "eslint-plugin-storybook": "^0.8.0",
-    "jsdom": "^24.0.0",
+    "jsdom": "^25.0.0",
     "lefthook": "^1.6.1",
     "lit-analyzer": "^2.0.3",
     "prettier": "^3.2.5",
